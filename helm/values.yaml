@@ -1,0 +1,46 @@
+global:
+  # nodeSelector:
+  #   server: my-server 
+  nodeSelector: {}
+
+multiPod:
+  enabled: true 
+  # replicaCount is ignored when multiPod.enabled = true
+  replicaCount: 3
+
+nodePort:
+  # port is ignored when nodePort.enabled = false
+  enabled: true 
+  port: 31002 
+
+image:
+  registry: ""
+  # registry: my.registry.com 
+  repository: josh9191/galera-k8s
+  tag: v1.0.0
+  pullPolicy: IfNotPresent
+
+imageCredentials:
+  name: ""
+  registry: ""
+  username: ""
+  password: "" 
+
+resources:
+  limits:
+    cpu: 1000m 
+    memory: 1024M 
+  requests:
+    cpu: 500m 
+    memory: 1024M 
+
+persistence:
+  enabled: true
+  size: 5Gi 
+  # matchLabels: 
+  #   app: db-root-vol
+  matchLabels: {}
+  # storageClass: manual 
+  storageClassName: nfs-client
+  accessMode: ReadWriteMany
+  subPath: mariadb
