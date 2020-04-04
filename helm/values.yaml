@@ -24,7 +24,7 @@ image:
   pullPolicy: IfNotPresent
 
 imageCredentials:
-  name: ""
+  name: galera-k8s-cred # should not be empty 
   registry: ""
   username: ""
   password: "" 

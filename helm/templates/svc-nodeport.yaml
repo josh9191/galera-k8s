@@ -11,6 +11,7 @@ spec:
     - port: 3306
       targetPort: 3306
       nodePort: {{ .Values.nodePort.port }}
+      name: mariadb-node 
   selector:
     app: galera-k8s
 {{- end }}
