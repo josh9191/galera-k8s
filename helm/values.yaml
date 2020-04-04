@@ -20,7 +20,7 @@ image:
   registry: ""
   # registry: my.registry.com 
   repository: josh9191/galera-k8s
-  tag: v1.0.0
+  tag: v0.0.0
   pullPolicy: IfNotPresent
 
 imageCredentials:
