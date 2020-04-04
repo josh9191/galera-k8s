@@ -2,6 +2,8 @@ global:
   # nodeSelector:
   #   server: my-server 
   nodeSelector: {}
+  # service name(set the serviceName in StatefulSet and metadata.name in Service to this one)
+  serviceName: galera-k8s-svc
 
 multiPod:
   enabled: true 
@@ -11,6 +13,7 @@ multiPod:
 nodePort:
   # port is ignored when nodePort.enabled = false
   enabled: true 
+  nodeServiceName: galera-k8s-node
   port: 31002 
 
 image:
@@ -40,7 +43,7 @@ persistence:
   # matchLabels: 
   #   app: db-root-vol
   matchLabels: {}
-  # storageClass: manual 
-  storageClassName: nfs-client
+  # storageClass: - 
+  storageClass: nfs-client
   accessMode: ReadWriteMany
   subPath: mariadb

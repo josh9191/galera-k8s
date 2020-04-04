@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.global.serviceName }} 
+  labels:
+    app: galera-k8s
+spec:
+  # if you want to enable NodePort, just set nodePort.enabled = true 
+  type: ClusterIP
+  # this service should be headless in order to retrieve other pods' address
+  clusterIP: None
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mariadb
+  selector:
+    app: galera-k8s

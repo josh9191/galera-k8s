@@ -1,0 +1,6 @@
+apiVersion: 0.0.0
+name: galera-k8s
+version: 0.0.0
+description: Helm chart for galera-k8s
+maintainers:
+  - name: josh9191

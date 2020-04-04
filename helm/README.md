@@ -46,9 +46,11 @@ The following table lists the parameters of the galera-k8s
 | Parameter | Description | Default |
 | --------- | ----------- | ------- |
 | `global.nodeSelector` | Node selector for pods(which is assigned to `spec.template.spec.nodeSelector`) | `{}` |
+| `global.serviceName` | Name for the service whose type is ClusterIP | `galera-k8s-svc` |
 | `multiPod.enabled` | If `true`, pods as many as `multiPod.replicaCount` are created(single pod is created otherwise) | `true` |
 | `muliPod.replicaCount` | The number of pods created(only when `multiPod.enabled` is `true`) | `3` |
 | `nodePort.enabled` | If `true`, the MariaDB server is exposed externally with port `nodePort.port` | `true` |
+| `nodePort.nodeServiceName` | Name for the service whose type is NodePort | `galera-k8s-node` |
 | `nodePort.port` | The external port number of the MariaDB server(only when `nodePort.enabled` is `true`) | `31002` |
 | `image.registry` | Address of registry which galera-k8s image exists in | `""` |
 | `image.repository` | Repository of galera-k8s image | `josh9191/galera-k8s` |
@@ -65,7 +67,7 @@ The following table lists the parameters of the galera-k8s
 | `persistence.enabled` | Use persistent volume or not(it is highly recommended to use persistence) | `true` |
 | `persistence.size` | Capacity of persistent volume | `5Gi` |
 | `persistence.matchLabels` | `matchLabels` which newly created PVC uses to match a persistent volume(if you already have PV, you can use matchLabels instead of storageClass) | `{}` |
-| `persistence.storageClassName` | Name of StorageClass if you want to create PV dynamically(dynamic volume provisioning) | `nfs-client` |
+| `persistence.storageClass` | Name of StorageClass(please set to "-" if you don't have it) if you want to create PV dynamically(dynamic volume provisioning) | `nfs-client` |
 | `persistence.accessMode` | Access mode of the claim | `ReadWriteMany` |
 | `persistence.subPath` | Subpath of the directory in persistent volume which data will be stored in | `mariadb` |
 
