@@ -5,12 +5,12 @@ metadata:
   name: {{ .Values.nodePort.nodeServiceName }} 
   labels:
     app: galera-k8s
-  spec:
-    type: NodePort
-    ports:
-      - port: 3306
-        targetPort: 3306
-        nodePort: {{ .Values.nodePort.port }}
-    selector:
-      app: galera-k8s
+spec:
+  type: NodePort
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: {{ .Values.nodePort.port }}
+  selector:
+    app: galera-k8s
 {{- end }}
