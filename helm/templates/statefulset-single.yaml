@@ -39,6 +39,12 @@ spec:
               {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }} 
+          # [2020-04-11] add readiness probe to guarantee ordered ready
+          readinessProbe:
+            tcpSocket:
+              port: 3306
+            initialDelaySeconds: 5
+            periodSeconds: 10
       imagePullSecrets:
         - name: {{ .Values.imageCredentials.name }}
       volumes:
