@@ -26,6 +26,11 @@ spec:
           env:
             - name: MULTI_POD_ENABLED
               value: "F"
+            - name: SERVICE_NAME
+              value: {{ .Values.global.serviceName }} 
+            # [FIXME] user may want to set cluster name
+            - name: MARIADB_CLUSTER_NAME
+              value: galera-k8s-cluster 
           volumeMounts:
             - name: galera-k8s-pvc
               mountPath: /var/lib/mysql

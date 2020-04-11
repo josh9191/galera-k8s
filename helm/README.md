@@ -52,12 +52,12 @@ The following table lists the parameters of the galera-k8s
 | `nodePort.enabled` | If `true`, the MariaDB server is exposed externally with port `nodePort.port` | `true` |
 | `nodePort.nodeServiceName` | Name for the service whose type is NodePort | `galera-k8s-node` |
 | `nodePort.port` | The external port number of the MariaDB server(only when `nodePort.enabled` is `true`) | `31002` |
-| `image.registry` | Address of registry which galera-k8s image exists in | `""` |
+| `image.registry` | Address of registry which galera-k8s image exists in | `docker.io` |
 | `image.repository` | Repository of galera-k8s image | `josh9191/galera-k8s` |
 | `image.tag` | Tag of galera-k8s image(a tag denotes version) | `v0.0.0` |
 | `image.pullPolicy` |  Pulling policy of galera-k8s image | `IfNotPresent` |
 | `imageCredentials.name` | The name of the image credential(set it as whatever you like as long as it doesn't exist) | `""` |
-| `imageCredentials.registry` | Address of registry which the credential is applied to | `""` |
+| `imageCredentials.registry` | Address of registry which the credential is applied to | `docker.io` |
 | `imageCredentials.username` | User name used to login to the registry | `""` |
 | `imageCredentials.password` | Password of the user | `""` |
 | `resources.limits.cpu` | The CPU usage limit of the container after creation | `1000m` |

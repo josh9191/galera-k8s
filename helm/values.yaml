@@ -17,7 +17,7 @@ nodePort:
   port: 31002 
 
 image:
-  registry: ""
+  registry: docker.io 
   # registry: my.registry.com 
   repository: josh9191/galera-k8s
   tag: v0.0.0
@@ -25,7 +25,7 @@ image:
 
 imageCredentials:
   name: galera-k8s-cred # should not be empty 
-  registry: ""
+  registry: docker.io 
   username: ""
   password: "" 
 
@@ -38,7 +38,7 @@ resources:
     memory: 1024M 
 
 persistence:
-  enabled: true
+  enabled: true 
   size: 5Gi 
   # matchLabels: 
   #   app: db-root-vol
